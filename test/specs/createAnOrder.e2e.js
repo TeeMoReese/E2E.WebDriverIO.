@@ -35,6 +35,8 @@ describe('Create an order', () => {
         await browser.url('/');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.selectBusiness();
+        const businessButton = await $(page.businessButton);
+        await expect(businessButton.parentElement()).toHaveElementClass('active')
     },
 
     it('should add a credit card', async () => {
@@ -48,6 +50,9 @@ describe('Create an order', () => {
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.sendMessageToDriver('Hello');
+        const messageDriver = await $(page.messageDriver);
+        await expect(messageDriver).toHaveValue('Hello');
+
     });
 
     it('should order a blanket and handkerchiefs,', async () => {
