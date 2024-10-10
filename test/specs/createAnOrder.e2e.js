@@ -68,6 +68,9 @@ describe('Create an order', () => {
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.selectSupportive();
         await page.ordericeCreams();
+        const iceCreamCounter = await $(page.icecreamCounter);
+        await expect(iceCreamCounter).toHaveTextContaining('2');
+
     });
 
     it('should have car search modal appear', async () => {
