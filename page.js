@@ -106,33 +106,32 @@ module.exports = {
     },
 
     //Writing a message for the driver
-    async sendMessageToDriver (message) {
+    addMessageToTheDriver: async function (message) {
         const messageDriver = await $(this.messageDriver);
         await messageDriver.setValue(message);
         
     },
 
     // Placing Orders
-    async orderBlanketAndHandkerchiefs() {
+    orderBlanketAndHandkerchiefs: async function () {
         const blanketandhankerchiefs = await $(this.selectblanketandHankerchiefs);
         await blanketandhankerchiefs.click();
     },
 
     // Ordering 2 ice creams
-    async ordericeCreams(quantity = 2) {
+    ordericeCreams: async function (quantity = 2) {
         const iceCreamPlus = await $(this.icecreamPlus);  // Selector for plus icon
         await iceCreamPlus.click();  // Click the plus icon to increase the count to 1
         await iceCreamPlus.click();  // Click again to increase the count to 2};
     },
 
     // Ordering Soundproof curtain
-    async ordersoundproofCurtain() {
+    ordersoundproofCurtain: async function () {
         const soundproofcurtain = await $(this.soundproofCurtain);
         await soundproofcurtain.click();
     },
 
    
-
     placeOrder: async function () {
         const orderButton = await $(this.ordercardButton);
         await orderButton.waitForDisplayed();
@@ -141,7 +140,7 @@ module.exports = {
     },
 
     // Driver Search Modal
-    async waitForDriverInfo() {
+    waitForDriverInfo: async function () {
         const driverSearchModal = await $('#driversearchModal');  
         await driverSearchModal.waitForDisplayed({ timeout: 10000 });  
         const driverInfo = await $('#driver-info');  

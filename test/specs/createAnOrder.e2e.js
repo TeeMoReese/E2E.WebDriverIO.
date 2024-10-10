@@ -43,6 +43,8 @@ describe('Create an order', () => {
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.addingCreditCard (123400004321,21);
+        const addingACardTitle = await $(page.addingACardTitle);
+        await expect(addingACardTitle).toBeDisplayed();
 
     });
 
@@ -60,6 +62,8 @@ describe('Create an order', () => {
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.selectSupportive();
         await page.orderBlanketAndHandkerchiefs ();
+        const blanketCheckbox = await $(page.blanketandhankerchiefsCheckbox);
+        await expect(blanketCheckbox).toBeSelected();
 
     });
 
@@ -87,6 +91,9 @@ describe('Create an order', () => {
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.selectSupportive();
         await page.sendMessageToDriver('Hello');
+        const messageDriver = await $(page.messageDriver);
+        await expect(messageDriver).toHaveValue('Hello');
+
         
     });
 
@@ -95,6 +102,9 @@ describe('Create an order', () => {
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.selectSupportive();
         await page.ordersoundproofCurtain();
+        const soundproofCurtain = await $(page.soundproofCurtain);
+        await expect(soundproofCurtain).toBeClickable();
+    
     });
 
 })
