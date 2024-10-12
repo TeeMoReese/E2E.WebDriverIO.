@@ -66,6 +66,7 @@ describe('Create an order', () => {
         await expect(blanketandhankerchiefsCheckbox).toBeSelected();
 
     });
+    
 
     it('should order 2 ice creams', async () => {
         await browser.url(`/`);
