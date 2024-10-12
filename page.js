@@ -15,7 +15,7 @@ module.exports = {
 
     //Elements
     supportiveButton: 'div=Supportive',
-    businessButton: '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[1]/div[1]/img',
+    businessButton: '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[1]',
     paymentMethod: '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[2]/div[1]',
     addCard: '//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[3]/div[2]',
     addCardNumber:'//*[@id="number"]',

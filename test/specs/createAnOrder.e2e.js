@@ -31,13 +31,14 @@ describe('Create an order', () => {
 
     });
 
-    it('should select business'), async () => {
+    // This was a personal test to assure I wrote correct code
+    it('should select business' , async () => {
         await browser.url('/');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.selectBusiness();
         const businessButton = await $(page.businessButton);
-        await expect(businessButton.parentElement()).toHaveElementClass('active')
-    },
+        await expect(businessButton).toHaveElementClass('active')
+    }),
 
     it('should add a credit card', async () => {
         await browser.url(`/`);
@@ -45,7 +46,7 @@ describe('Create an order', () => {
         await page.addingCreditCard(123400004321, 21);
         const cardTitle = await $(page.addingACardTitle);
         await expect(cardTitle).toBeExisting();
-    });
+    }),
     
 
     it('should write a message for the driver', async () => {
