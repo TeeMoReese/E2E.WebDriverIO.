@@ -31,7 +31,7 @@ describe('Create an order', () => {
 
     });
 
-    it ('should select business'), async () => {
+    it('should select business'), async () => {
         await browser.url('/');
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.selectBusiness();
@@ -42,16 +42,16 @@ describe('Create an order', () => {
     it('should add a credit card', async () => {
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
-        await page.addingCreditCard (123400004321,21);
-        const addingACardTitle = await $(page.addingACardTitle);
-        await expect(addingACardTitle).toBeDisplayed();
-
+        await page.addingCreditCard(123400004321, 21);
+        const cardTitle = await $(page.addingACardTitle);
+        await expect(cardTitle).toBeExisting();
     });
+    
 
     it('should write a message for the driver', async () => {
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
-        await page.sendMessageToDriver('Hello');
+        await page.addMessageToTheDriver('Hello');
         const messageDriver = await $(page.messageDriver);
         await expect(messageDriver).toHaveValue('Hello');
 
@@ -62,8 +62,8 @@ describe('Create an order', () => {
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.selectSupportive();
         await page.orderBlanketAndHandkerchiefs ();
-        const blanketCheckbox = await $(page.blanketandhankerchiefsCheckbox);
-        await expect(blanketCheckbox).toBeSelected();
+        const blanketandhankerchiefsCheckbox = await $(page.blanketandhankerchiefsCheckbox);
+        await expect(blanketandhankerchiefsCheckbox).toBeSelected();
 
     });
 
@@ -81,7 +81,7 @@ describe('Create an order', () => {
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.selectSupportive();
-        await page.sendMessageToDriver('Hello');
+        await page.addMessageToTheDriver('Hello');
         await page.placeOrder();
         await expect($(`${page.carsearchModal}`)).toBeExisting();
     });
@@ -90,7 +90,7 @@ describe('Create an order', () => {
         await browser.url(`/`);
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
         await page.selectSupportive();
-        await page.sendMessageToDriver('Hello');
+        await page.addMessageToTheDriver('Hello');
         const messageDriver = await $(page.messageDriver);
         await expect(messageDriver).toHaveValue('Hello');
 

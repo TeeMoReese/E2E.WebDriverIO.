@@ -39,6 +39,7 @@ module.exports = {
     phoneNumberModal: '.modal',
     carsearchModal: '.modal',
     driversearchModal: '.modal',
+    creditcardModal: './/*[@id="root"]/div/div[2]/div[2]/div[2]/form',
 
     // Functions
     fillAddresses: async function(from, to) {
@@ -91,17 +92,23 @@ module.exports = {
     // Add Credit Card
     addingCreditCard: async function(cardnumber,cvvcode) {
         const paymentMethod = await $(this.paymentMethod);
-        await paymentMethod.click ();
+        await paymentMethod.waitForDisplayed();
+        await paymentMethod.click();
+
         const addCard = await $(this.addCard);
-        await addCard.click (); 
+        await addCard.click(); 
+
         const addCardNumber = await $(this.addCardNumber);
         await addCardNumber.setValue(cardnumber)
+
         const addCvvNumber = await $(this.addCvvNumber);
         await addCvvNumber.setValue(cvvcode)
-        const addingACardTitle = await $(this.addingACardTitle);
-        await addingACardTitle.click ();
+
+        const creditcardModal = await $(this.creditcardModal);
+        await creditcardModal.click ();
         const selectLink = await $(this.selectLink);
-        await selectLink.click ();
+        await selectLink.click();
+
 
     },
 
