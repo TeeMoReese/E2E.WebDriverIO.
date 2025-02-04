@@ -1,4 +1,4 @@
-Project 8 – Test Automation (Urban.Routes)
+Test Automation (Urban.Routes)
 
 Project Description
 Project 8 is an automated testing project that covers the end-to-end process of ordering a taxi using a simulated platform with WebdriverIO and Visual Studio. The project tests the full flow of placing a taxi order, including selecting options, filling out forms, and interacting with modal windows. This project automates various user interactions, ensuring that the system responds as expected to specific input scenarios.
